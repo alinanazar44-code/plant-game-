@@ -1,1 +1,167 @@
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #f3f4f6;
+    padding-top: 50px;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #111827 0%, #030712 100%);
+    overflow-x: hidden;
+}
+
+#menu, #select, #shop, #game {
+    background: #000000;
+    padding: 35px;
+    border-radius: 20px;
+    max-width: 380px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border: 1px solid #1f2937;
+    position: relative;
+}
+
+h1 { font-size: 34px; color: #22c55e; margin-bottom: 30px; font-weight: 600; }
+h2 { color: #f3f4f6; font-size: 22px; }
+h3 { color: #f3f4f6; margin-top: 0; }
+
+button {
+    background: #22c55e;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    min-width: 140px;
+    min-height: 44px;
+    cursor: pointer;
+    margin: 8px;
+    box-shadow: 0 4px 6px rgba(34, 197, 94, 0.2);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #1f2937;
+    color: #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary:hover { background: #374151; color: #ffffff; }
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #374151;
+    padding-bottom: 12px;
+}
+
+.coins-container {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fbbf24;
+}
+
+.coin-sprite {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.btn-menu-toggle {
+    background: #4b5563;
+    min-width: 80px;
+    min-height: 36px;
+    font-size: 14px;
+    box-shadow: none;
+}
+.btn-menu-toggle:hover { background: #374151; }
+
+.water-section { margin-bottom: 15px; }
+
+#waterBar {
+    width: 100%;
+    height: 16px;
+    background: #1f2937;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #374151;
+}
+
+#waterLevel {
+    height: 100%;
+    background: #3b82f6;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+#status { font-size: 15px; font-weight: 600; color: #9ca3af; margin: 5px 0; }
+
+.side-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    height: 100%;
+    background: #111827;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.5);
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-left: 1px solid #374151;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.side-menu button {
+    min-width: 140px;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.plant-container { position: relative; height: 130px; display: flex; justify-content: center; align-items: center; margin: 20px 0; }
+#plant { max-height: 100%; object-fit: contain; }
+#dropsContainer { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 100px; pointer-events: none; overflow: hidden; }
+
+.water-drop {
+    position: absolute; 
+    width: 12px;        
+    height: auto;
+    opacity: 0.9;
+    animation: fall 0.6s linear forwards;
+}
+
+@keyframes fall {
+    0% { top: 0; opacity: 0; transform: scaleY(1); }
+    20% { opacity: 1; }
+    100% { top: 100px; opacity: 0; transform: scaleY(0.5); }
+}
+
+.watering-can { transition: transform 0.3s ease; cursor: pointer; width: 55px; }
+.watering-can.pour { transform: rotate(-30deg) scale(1.1) translateY(-10px); }
+
+.modal-overlay {
+   } position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 100;
+}
+
+.modal-box {
+    background: #111827; padding: 40px; border-radius: 20px; text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7); max-width: 320px; border: 1px solid #374151;
+}
+
+.death-title { color: #ef4444; margin-top: 0; font-size: 26px; }
+
+.hidden { display: none !important; 
+
+}
