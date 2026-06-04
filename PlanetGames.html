@@ -1,33 +1,79 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planet Games</title>
-    <link rel="stylesheet" href="PlanetGames.css">
+    <title>Plant Game</title>
+    <link rel="stylesheet" href="plant_game.css">
 </head>
-
 <body>
 
     <div id="menu">
-        <h1>Planet Games</h1>
-        <button onclick="startGame()">Грати</button>
-        <button onclick="exitGame()">Вийти</button>
+        <h1>▶ Plant Game</h1>
+        <div class="menu-buttons">
+            <button onclick="openSelect()">Play</button>
+            <button class="btn-secondary" onclick="window.close()">✖ Exit</button>
+        </div>
+    </div>
+
+    <div id="select" class="hidden">
+        <h2>Choose a Plant to Start</h2>
+        <button onclick="choosePlant('flower')">🌸 Flower</button>
+        <button onclick="choosePlant('cactus')">🌵 Cactus</button>
+        <button onclick="choosePlant('sunflower')">🌻 Sunflower</button>
+        <br><br>
+        <button class="btn-secondary" onclick="backMenu()">Back</button>
+    </div>
+
+    <div id="shop" class="hidden">
+        <h2>Shop</h2>
+        <button onclick="buyPlant('flower', 0)">🌸 Flower (Free)</button>
+        <button onclick="buyPlant('cactus', 5)">🌵 Cactus (5)</button>
+        <button onclick="buyPlant('sunflower', 10)">🌻 Sunflower (10)</button>
+        <br><br>
+        <button class="btn-secondary" onclick="closeShop()">Back to Game</button>
     </div>
 
     <div id="game" class="hidden">
-        
-        <div id="waterBar">
-            <div id="waterLevel"></div>
+        <div class="game-header">
+            <div class="coins-container">
+                <img src="images/images.coin.png" class="coin-sprite" alt="Coin">
+                <span id="coinsGame">0</span>
+            </div>
+            <button class="btn-menu-toggle" onclick="toggleSideMenu()">⚙ Menu</button>
         </div>
 
-        <p id="status">Live</p>
+        <div class="water-section">
+            <div id="waterBar"><div id="waterLevel"></div></div>
+            <p id="status">Healthy</p>
+        </div>
+        
+        <div class="plant-container">
+            <div id="dropsContainer"></div>
+            <img id="plant" src="" alt="Plant">
+        </div>
+        
+        <div class="action-section">
+            <img id="can" class="watering-can" src="images/images.can.png" onclick="waterPlant()" alt="Watering Can">
+        </div>
 
-       <img id="plant" src="" alt="Ваша рослина">
-
+        <div id="sideMenu" class="side-menu hidden">
+            <h3>Game Options</h3>
+            <button onclick="toggleSideMenu()">Resume</button>
+            <button onclick="openShop()">Shop</button>
+            <button class="btn-secondary" onclick="backMenu()">Exit to Menu</button>
+        </div>
     </div>
 
-    <script src="PlanetGames.js"></script>
+    <div id="gameOverScreen" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h2 class="death-title">The Plant Died...</h2>
+            <p>You forgot to water your plant in time!</p>
+            <button onclick="restartGame()">Try Again</button>
+            <button class="btn-secondary" onclick="backMenuFromGameOver()">Main Menu</button>
+        </div>
+    </div>
+
+    <script src="plant_game.js"></script>
 </body>
 </html>
-
